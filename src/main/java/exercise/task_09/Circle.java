@@ -2,10 +2,11 @@ package exercise.task_09;
 
 import exercise.task_10.Movable;
 import exercise.task_10.MoveDirection;
+import exercise.task_11.Resizable;
 
 import java.util.List;
 
-public class Circle implements Movable {
+public class Circle implements Movable, Resizable {
 
     private Point2D center;
     private Point2D point;
@@ -29,12 +30,38 @@ public class Circle implements Movable {
         point.setX(point.getX() + moveDirection.getX());
     }
 
+    //Check for minus center point
+    @Override
+    public void resize(double resizeFactor) {
+        point.setY(point.getY() + resizeFactor);
+        point.setX(point.getX() + resizeFactor);
+    }
+
     @Override
     public String toString() {
         return "Circle{" +
                 "center=" + center +
                 ", point=" + point +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Circle)) return false;
+
+        Circle circle = (Circle) o;
+
+        if (center != null ? !center.equals(circle.center) : circle.center != null) return false;
+        return point != null ? point.equals(circle.point) : circle.point == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = center != null ? center.hashCode() : 0;
+        result = 31 * result + (point != null ? point.hashCode() : 0);
+        return result;
     }
 
     public static void main(String[] args) {

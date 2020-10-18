@@ -1,5 +1,8 @@
 package exercise.task_15;
 
+import exercise.task_09.Circle;
+import exercise.task_09.Point2D;
+
 /**
  * Stwórz klasę enum Car ze stałymi FERRARI, PORSCHE, MERCEDES, BMW, OPEL, FIAT, TOYOTA,
  * itp. Każdy z pojazdów ma własne parametry: cena, moc.
@@ -14,41 +17,42 @@ package exercise.task_15;
  * W tym celu skorzystaj z metody compareTo().
  */
 
+// tell don't ask
 public enum Car {
 
-    FERRARI(1_000_000, 250, true),
-    DAEWOO(1_500, 160, false);
+    FERRARI(1_000_000, 400, true),
+    GOLF(1_500, 160, false);
 
-    private int price;
-    private Integer maxSpeed;
-    private boolean premium;
+    int price;
+    int hp;
+    boolean premium;
 
-    Car(int price, int maxSpeed, boolean premium) {
+    Car(int price, int hp, boolean premium) {
         this.price = price;
-        this.maxSpeed = maxSpeed;
+        this.hp = hp;
         this.premium = premium;
     }
 
-    public boolean isPremium() {
+    boolean isPremium() {
         return premium;
     }
 
-    public boolean isRegular() {
+    boolean isRegular() {
         return !premium;
     }
 
-    public boolean isFasterThan(Car otherCar) {
-        return this.maxSpeed.compareTo(otherCar.maxSpeed) > 0;
+    boolean isFasterThan(Car otherCar) {
+        return this.hp > otherCar.hp;
     }
 
     public static void main(String[] args) {
 
-        Car nexia = DAEWOO;
-        System.out.println("get price " + nexia.maxSpeed);
-        System.out.println("is premium " + nexia.isPremium());
-        System.out.println("is regular " + nexia.isRegular());
+        Car ferrari = Car.FERRARI;
+        Car golf = Car.GOLF;
 
-        System.out.println("is my nexia faster than ferrari " + nexia.isFasterThan(FERRARI));
+        System.out.println("Is golf a premium car " + golf.isPremium());
+        System.out.println("Is ferrari faster than golf " + ferrari.isFasterThan(golf));
+
 
     }
 }

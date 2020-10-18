@@ -18,4 +18,6 @@ package exercise.task_22;
 
 public interface Fillable {
 
+    void fill(Double volume);
+
 }

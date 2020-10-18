@@ -26,7 +26,9 @@ public class Storage {
 
     public void addValueToStorage(String key, String value) {
         List<String> strings = multiMap.get(key);
+        //Key is not yet in the map
         if (strings == null) {
+            //create new list for storing values
             strings = new ArrayList<>();
         }
         strings.add(value);
@@ -38,6 +40,7 @@ public class Storage {
         System.out.println("value for key " + key + " is " + values);
     }
 
+    // returns list of key containing value
     public List<String> findValues(String values) {
         return multiMap.entrySet()
                 .stream()
