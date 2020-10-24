@@ -1,5 +1,7 @@
 package exercise.task_30;
 
+import java.util.concurrent.Callable;
+
 /**
  * Utwórz klasę implementującą Runnable.
  * Zaimplementuj metodę run(),
@@ -12,5 +14,6 @@ package exercise.task_30;
  * Na zmiennej typu Thread wykonać metodę start().
  */
 public class MyRunnable {
+
 
 }

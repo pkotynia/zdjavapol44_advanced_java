@@ -11,4 +11,22 @@ package exercise.task_17;
 
 public enum ConversionType {
 
+    KILOMETERS_TO_MILES(new Converter(0.6214)),
+    MILES_TO_KILOMETERS(new Converter(1.6093));
+
+    private Converter converter;
+
+    ConversionType(Converter converter) {
+        this.converter = converter;
+    }
+
+    public double convert(int value) {
+        return converter.convert(value);
+    }
+
+    public static void main(String[] args) {
+        ConversionType conversionType = ConversionType.KILOMETERS_TO_MILES;
+
+        System.out.println(conversionType.convert(1));
+    }
 }

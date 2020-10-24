@@ -13,4 +13,14 @@ package exercise.task_29;
 
 public class MyThread extends Thread {
 
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName());
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Thread.currentThread().getName());
+        Thread thread = new MyThread();
+        thread.start();
+    }
 }

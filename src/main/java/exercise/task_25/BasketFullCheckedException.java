@@ -6,6 +6,6 @@ package exercise.task_25;
  * Obsłuż je.
  */
 
-public class BasketFullCheckedException {
+public class BasketFullCheckedException extends Exception {
 
 }
